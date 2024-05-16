@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Majahaldur | Kõik ühes kinnisvarahaldus platvorm</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Majahaldur | Kõik ühes kinnisvarahaldus platvorm">
+    <meta name="keywords" content="bootstrap, business, creative agency, mobile app showcase, saas, fintech, finance, online courses, software, medical, conference landing, services, e-commerce, shopping cart, multipurpose, shop, ui kit, marketing, seo, landing, blog, portfolio, html5, css3, javascript, gallery, slider, touch, creative">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#6366f1">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Theme mode -->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+  </head>
+
+
+  <!-- Body -->
+  <body>
+    
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Laeb...</span>
+      </div>
+    </div>
+
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
+        <div class="container px-3">
+          <a href="index.html" class="navbar-brand pe-3">
+            <img src="assets/img/logo.svg" width="47" alt="Majahaldur">
+            Majahaldur.ee
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link active" aria-current="page">Avaleht</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link">Teenused</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link">Meist</a>
+                  
+                </li>
+                <li class="nav-item">
+                  <a href="components/typography.html" class="nav-link">Hinnad</a>
+                </li>
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top">
+              <a href="#" class="btn btn-primary w-100" target="_blank" rel="noopener">
+                <i class='bx bx-log-in fs-4 lh-1 me-1' ></i>
+                &nbsp;Logi sisse
+              </a>
+            </div>      
+          </div>
+          <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+            <input type="checkbox" class="form-check-input" id="theme-mode">
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Hele</label>
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Tume</label>
+          </div>
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="#" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
+            <i class='bx bx-log-in fs-5 lh-1 me-1' ></i>
+            &nbsp;Logi sisse
+          </a>
+        </div>
+      </header>
+
+
+      <!-- Hero -->
+      <section class="container py-5 mt-5 mt-md-4 mb-md-3 mb-lg-4 mb-xl-5">
+        <div class="row align-items-center align-items-lg-stretch mb-2 mb-sm-3">
+
+          <!-- Parallax gfx -->
+          <div class="col-xl-7 col-md-6 d-flex justify-content-center justify-content-md-end overflow-hidden order-md-2 mt-n5 mt-sm-n4 mt-md-0">
+            <div class="position-relative mt-5" style="max-width: 660px;">
+              <div class="bg-gradient-primary position-absolute start-0 bottom-0 w-100 rounded-3 opacity-15" style="height: 95%;"></div>
+              <div class="parallax zindex-2">
+                <div class="parallax-layer zindex-2 mb-n3" data-depth="0.1">
+                  <img src="assets/img/landing/app-showcase/hero/layer01.png" alt="Device">
+                </div>
+                <div class="parallax-layer" data-depth="-0.22">
+                  <img src="assets/img/landing/app-showcase/hero/layer02.png" alt="Bubble">
+                </div>
+                <div class="parallax-layer" data-depth="0.3">
+                  <img src="assets/img/landing/app-showcase/hero/layer03.png" alt="Bubble">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text -->
+          <div class="col-xl-5 col-md-6 d-flex flex-column order-md-1">
+            <div class="text-center text-md-start pt-4 pt-sm-5 pt-xl-0 mt-2 mt-sm-0 mt-lg-auto">
+              <h1 class="display-3 mb-4">Kõik ühes kinnisvarahaldus platvorm</h1>
+              <p class="fs-lg mb-0 d-md-none d-xl-block">Mugav ja kvaliteetne haldusteenus korteriomanikele. Personaalne haldur, tehnohooldus, avariiteenus, remont, hooldus, raamatupidamine ja juriidiline abi - kõik ühest kohast.</p>
+              <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-md-start pt-2 mt-4 mt-md-5">
+                <a href="#" class="btn btn-dark btn-lg px-3 py-2 me-sm-3 me-lg-4 mb-3">
+                  <img src="assets/img/market/appstore-light.svg" class="light-mode-img" width="124" alt="App Store">
+                  <img src="assets/img/market/appstore-dark.svg" class="dark-mode-img" width="124" alt="App Store">
+                </a>
+                <a href="#" class="btn btn-dark btn-lg px-3 py-2 mb-3">
+                  <img src="assets/img/market/googleplay-light.svg" class="light-mode-img" width="139" alt="Google Play">
+                  <img src="assets/img/market/googleplay-dark.svg" class="dark-mode-img" width="139" alt="Google Play">
+                </a>
+              </div>
+            </div>
+            <div class="d-sm-flex d-md-none d-lg-flex justify-content-center justify-content-md-start mt-auto pt-3 pt-md-0">
+              <div class="d-flex align-items-center w-100 pe-xxl-2 mb-2 mb-md-0">
+                <div class="h1 mb-0">99%</div>
+                <div class="ps-2 ms-1"> ajast kättesaadav</div>
+              </div>
+              <div class="vr d-none d-sm-block text-border my-2 mx-4"></div>
+              <div class="d-flex align-items-center w-100 ps-xxl-2">
+                <div class="h1 mb-0">10</div>
+                <div class="ps-2 ms-1">innovatiivset erinevat sensorit</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section class="container py-5 my-md-3 my-lg-4 my-xl-5">
+        <div class="row align-items-center align-items-xl-end py-2 pb-sm-3">
+          <div class="col-md-6 mb-5 mb-md-0">
+            <div style="max-width: 570px;">
+              <h2 class="h1 pb-3 mb-2 mb-md-3">Saa paremad haldurid</h2>
+              <div class="row row-cols-1 row-cols-sm-2 gx-lg-5 g-4">
+                <div class="col d-md-flex d-xl-block align-items-center pt-1 pt-sm-2 pt-md-0 pt-xl-3">
+                  <div class="d-table bg-secondary rounded flex-shrink-0 p-2 mb-3 me-md-3 me-xl-0">
+                    <img src="assets/img/landing/app-showcase/features/statistics.svg" width="19" class="d-block m-1" alt="Icon">
+                  </div>
+                  <h3 class="h5 pb-sm-1 mb-2">
+                    <span class="d-md-none d-xl-block">Haldusteenus</span>
+                    <span class="fs-base text-nav d-none d-md-block d-xl-none">Haldusteenus</span>
+                  </h3>
+                  <p class="fs-sm mb-0 d-md-none d-xl-block">Teie objekti hakkab haldama personaalne haldur, kelle asjatundliku majandamise läbi on kinnistu regulaarselt hooldatud ja hoitud.</p>
+                </div>
+                <div class="col d-md-flex d-xl-block align-items-center pt-1 pt-sm-2 pt-md-0 pt-xl-3">
+                  <div class="d-table bg-secondary rounded flex-shrink-0 p-2 mb-3 me-md-3 me-xl-0">
+                    <img src="assets/img/landing/app-showcase/features/cashback.svg" width="19" class="d-block m-1" alt="Icon">
+                  </div>
+                  <h3 class="h5 pb-sm-1 mb-2">
+                    <span class="d-md-none d-xl-block">Avariiteenus</span>
+                    <span class="fs-base text-nav d-none d-md-block d-xl-none">Avariiteenus</span>
+                  </h3>
+                  <p class="fs-sm mb-0 d-md-none d-xl-block">Ööpäevaringne avariiteenus pakub abi vee, kütte ja elektrivarustusega tekkivate probleemide korral.</p>
+                </div>
+                <div class="col d-md-flex d-xl-block align-items-center pt-1 pt-sm-2 pt-md-0 pt-xl-3">
+                  <div class="d-table bg-secondary rounded flex-shrink-0 p-2 mb-3 me-md-3 me-xl-0">
+                    <img src="assets/img/landing/app-showcase/features/statistics.svg" width="19" class="d-block m-1" alt="Icon">
+                  </div>
+                  <h3 class="h5 pb-sm-1 mb-2">
+                    <span class="d-md-none d-xl-block">Remonditeenus</span>
+                    <span class="fs-base text-nav d-none d-md-block d-xl-none">Remonditeenus</span>
+                  </h3>
+                  <p class="fs-sm mb-0 d-md-none d-xl-block">Hoone korrashoid nõuab ka remonditööde ja jooksvate parandustööde tegemist. Teenus hõlmab endast remonditöid ühiskasutavates ruumides, teostame ka töid omanike korterites</p>
+                </div>
+                <div class="col d-md-flex d-xl-block align-items-center pt-1 pt-sm-2 pt-md-0 pt-xl-3">
+                  <div class="d-table bg-secondary rounded flex-shrink-0 p-2 mb-3 me-md-3 me-xl-0">
+                    <img src="assets/img/landing/app-showcase/features/security.svg" width="19" class="d-block m-1" alt="Icon">
+                  </div>
+                  <h3 class="h5 pb-sm-1 mb-2">
+                    <span class="d-md-none d-xl-block">Õigusabiteenus</span>
+                    <span class="fs-base text-nav d-none d-md-block d-xl-none">Õigusabiteenus</span>
+                  </h3>
+                  <p class="fs-sm mb-0 d-md-none d-xl-block">Aitame teil lahendada korterelamus juriidilisi probleeme, meie meeskonnas on kogenud advokaadid kes annavad nõu ja on abiks dokumentide koostamisel ning erinevate osapooltega suhtlemisel.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="rellax position-relative rounded-3 mb-xl-5" style="box-shadow: -7px 12px 60px 0 rgba(126,123,160, .12);" data-rellax-percentage="0.5" data-rellax-speed="1.3" data-disable-parallax-down="xl">
+              <img src="assets/img/landing/app-showcase/stats.jpg" class="d-block rounded-3" alt="Stats screen">
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- How it works (Slider) -->
+      <section class="container">
+        <div class="text-center pb-4 mb-3 mx-auto" style="max-width: 530px;">
+          <h2 class="h1">Kuidas see toimib?</h2>
+          <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit volutpat mollis egestas nam luctus facilisis ultrices</p>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-md-6 pb-4 pb-md-0 mb-2 mb-md-0">
+
+            <!-- Swiper tabs -->
+            <div class="position-relative px-5">
+              <div class="swiper-tabs zindex-2 mx-auto" style="max-width: 384px;">
+                <div id="screen-1" class="swiper-tab active">
+                  <img src="assets/img/landing/app-showcase/screens/05.png" alt="App screen">
+                </div>
+                <div id="screen-2" class="swiper-tab">
+                  <img src="assets/img/landing/app-showcase/screens/06.png" alt="App screen">
+                </div>
+                <div id="screen-3" class="swiper-tab">
+                  <img src="assets/img/landing/app-showcase/screens/07.png" alt="App screen">
+                </div>
+              </div>
+              <div class="bg-gradient-primary position-absolute start-0 bottom-0 w-100 opacity-15 rounded-3" style="height: 86.5%;"></div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-5 offset-lg-1">
+            <div class="ps-md-4 ps-lg-0">
+
+              <!-- Swiper slider -->
+              <div class="swiper text-center text-md-start mt-auto" data-swiper-options='{
+                "spaceBetween": 30,
+                "loop": true,
+                "tabs": true,
+                "navigation": {
+                  "prevEl": "#prev-screen",
+                  "nextEl": "#next-screen"
+                }
+              }'>
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide" data-swiper-tab="#screen-1">
+                    <div class="fs-xl text-muted mb-3 mb-lg-4">1\3</div>
+                    <h3 class="mb-lg-4">Loo konto</h3>
+                    <p>Tellus est ullamcorper diam phasellus. Commodo acine pharetra quam lacinia fames quam nibh in elementum pulvinar consectetur adipiscing. Et viverra maecenas quis cras sed gravida volutpat, cursus enim enim ut nulla netus porta lacus.</p>
+                  </div>
+                  <div class="swiper-slide" data-swiper-tab="#screen-2">
+                    <div class="fs-xl text-muted mb-3 mb-lg-4">2\3</div>
+                    <h3 class="mb-lg-4">Lisa uus kinnistu</h3>
+                    <p>Ac condimentum a nisl sagittis, interdum. Et viverra maecenas quis cras sed gravida volutpat, cursus enim. Enim ut nulla netus porta lacus diam. Risus massa fames metus lectus diam maecenas dui. Nibh morbi id purus eget tellus diam.</p>
+                  </div>
+                  <div class="swiper-slide" data-swiper-tab="#screen-3">
+                    <div class="fs-xl text-muted mb-3 mb-lg-4">3\3</div>
+                    <h3 class="mb-lg-4">Hakka jälgima enda maja ressursside kasutamist </h3>
+                    <p>Risus massa fames metus lectus diam maecenas dui. Nibh morbi id purus eget tellus diam, integer blandit. Ac condimentum a nisl sagittis, interdum. Et viverra maecenas quis cras sed gravida volutpat, cursus enim. Enim ut nulla netus porta.</p>
+                  </div>
+                </div>
+              </div>
+  
+              <!-- Slider controls (Prev / next) -->
+              <div class="d-flex justify-content-center justify-content-md-start pt-2 pt-lg-3">
+                <button type="button" id="prev-screen" class="btn btn-prev btn-icon btn-sm me-2">
+                  <i class="bx bx-chevron-left"></i>
+                </button>
+                <button type="button" id="next-screen" class="btn btn-next btn-icon btn-sm ms-2">
+                  <i class="bx bx-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing -->
+      <!-- Hero -->
+      <section class="bg-light py-5">
+        <div class="container pb-2 py-lg-3">
+
+      
+          <h1 class="text-center mb-0">Head hinnad. Kõigi jaoks</h1>
+        </div>
+        <div style="height: 300px;"></div>
+      </section>
+
+
+      <!-- Pricing plans -->
+      <section class="container position-relative zindex-2" style="margin-top: -300px;">
+        <div class="price-switch-wrapper">
+          <div class=" pb-2 pb-lg-3">
+            <div class="form-check form-switch price-switch justify-content-center mt-2 mb-4" data-bs-toggle="price">
+              <input type="checkbox" class="form-check-input" id="pricing">
+              <label class="form-check-label" for="pricing">Iga-kuine</label>
+              <label class="form-check-label d-flex align-items-start" for="pricing">Aastane <span class="text-danger fs-xs fw-semibold mt-n2 ms-2">-20%</span></label>
+            </div>  
+          </div>
+          <div class="table-responsive-lg">
+            <div class="d-flex align-items-center justify-content-center pb-4">
+  
+              <!-- Pricing plan -->
+              <div class="border rounded-3 rounded-end-0 shadow-sm me-n1" style="width: 32%; min-width: 16rem;">
+                <div class="card bg-light h-100 border-0 border-end rounded-end-0 py-3 py-sm-4 py-lg-5">
+                  <div class="card-body text-center">
+                    <h3 class="mb-2">Eraisik</h3>
+                    <div class="fs-lg pb-4 mb-3">Parim startupidle</div>
+                    <div class="display-5 mb-1" data-monthly-price>€15</div>
+                    <div class="d-none display-5 mb-1" data-annual-price>€50</div>
+                    <div class="text-muted mb-5">iga kuu</div>
+                  </div>
+                  <div class="card-footer border-0 text-center pt-0 pb-4">
+                    <a href="#" class="btn btn-outline-primary btn-lg">Alusta kohe</a>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Featurd pricing plan -->
+              <div class="bg-primary position-relative rounded-3 shadow-primary shadow-dark-mode-none zindex-2 p-4" style="width: 36%; min-width: 18rem;">
+                <div class="card bg-transparent border-light py-3 py-sm-4 py-lg-5">
+                  <div class="card-body text-light text-center">
+                    <h3 class="text-light mb-2">Ettevõte</h3>
+                    <div class="fs-lg opacity-70 pb-4 mb-3">Parim suurtele ettevõtetele</div>
+                    <div class="display-5 mb-1" data-monthly-price>€25</div>
+                    <div class="d-none display-5 mb-1" data-annual-price>€120</div>
+                    <div class="opacity-50 mb-5">iga kuu</div>
+                  </div>
+                  <div class="card-footer border-0 text-center pt-0 pb-4">
+                    <a href="#" class="btn btn-light btn-lg shadow-secondary">Alusta kohe</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="container py-5 my-1 my-md-4 my-lg-5">
+        <div class="row pt-2 py-xl-3">
+          <div class="col-lg-3 col-md-4">
+            <h2 class="h1 text-center text-md-start mx-auto mx-md-0 pb-3 pb-sm-4 pb-md-0 pt-md-2" style="max-width: 300px;">Mida <br class="d-none d-md-inline">Inimesed ütlevad<br class="d-none d-md-inline"> Meie Appist:</h2>
+
+            <!-- Slider controls (Prev / next buttons) -->
+            <div class="d-none d-md-flex justify-content-center justify-content-md-start pb-4 mb-2 pt-2 pt-md-4 mt-md-5">
+              <button type="button" id="prev-testimonial" class="btn btn-prev btn-icon btn-sm me-2">
+                <i class="bx bx-chevron-left"></i>
+              </button>
+              <button type="button" id="next-testimonial" class="btn btn-next btn-icon btn-sm ms-2">
+                <i class="bx bx-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+          <div class="col-lg-9 col-md-8">
+            <div class="swiper mx-n2" data-swiper-options='{
+              "slidesPerView": 1,
+              "spaceBetween": 8,
+              "loop": true,
+              "navigation": {
+                "prevEl": "#prev-testimonial",
+                "nextEl": "#next-testimonial"
+              },
+              "pagination": {
+                "el": ".swiper-pagination",
+                "clickable": true
+              },    
+              "breakpoints": {
+                "500": {
+                  "slidesPerView": 2
+                },
+                "1000": {
+                  "slidesPerView": 2
+                },
+                "1200": {
+                  "slidesPerView": 3
+                }
+              }
+            }'>
+              <div class="swiper-wrapper">
+  
+                <!-- Item -->
+                <div class="swiper-slide h-auto pt-4">
+                  <figure class="d-flex flex-column h-100 px-2 px-sm-0 mb-0 mx-2">
+                    <div class="card h-100 position-relative border-0 shadow-sm pt-4">
+                      <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
+                        <i class="bx bxs-quote-left"></i>
+                      </span>
+                      <blockquote class="card-body pb-3 mb-0">
+                        <p class="mb-0">Id mollis consectetur congue egestas egestas suspendisse blandit justo. Tellus augue commodo id quis tempus etiam pulvinar at maecenas.</p>
+                      </blockquote>
+                      <div class="card-footer border-0 text-nowrap pt-0">
+                        <i class="bx bxs-star text-warning"></i>
+                        <i class="bx bxs-star text-warning"></i>
+                        <i class="bx bxs-star text-warning"></i>
+                        <i class="bx bx-star text-muted opacity-75"></i>
+                        <i class="bx bx-star text-muted opacity-75"></i>
+                      </div>
+                    </div>
+                    <figcaption class="ps-4 pt-4">
+                      <h6 class="fs-sm fw-semibold mb-0">Mark Samuilik</h6>
+                      <span class="fs-xs text-muted">Õismäe Boss</span>
+                    </figcaption>
+                  </figure>
+                </div>
+  
+                <!-- Item -->
+                <div class="swiper-slide h-auto pt-4">
+                  <figure class="d-flex flex-column h-100 px-2 px-sm-0 mb-0 mx-2">
+                    <div class="card h-100 position-relative border-0 shadow-sm pt-4">
+                      <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
+                        <i class="bx bxs-quote-left"></i>
+                      </span>
+                      <blockquote class="card-body pb-3 mb-0">
+                        <p class="mb-0">Phasellus luctus nisi id orci condimentum, at cursus nisl vestibulum. Orci varius natoque penatibus et magnis dis parturient montes commodo.</p>
+                      </blockquote>
+                      <div class="card-footer border-0 text-nowrap pt-0">
+                        <i class="bx bxs-star text-warning"></i>
+                        <i class="bx bxs-star text-warning"></i>
+                        <i class="bx bxs-star text-warning"></i>
+                        <i class="bx bxs-star text-warning"></i>
+                        <i class="bx bxs-star text-warning"></i>
+                      </div>
+                    </div>
+                    <figcaption class="ps-4 pt-4">
+                      <h6 class="fs-sm fw-semibold mb-0">Alan Mägi</h6>
+                      <span class="fs-xs text-muted">Lasnamäe keevitamis akadeemia direktor</span>
+                    </figcaption>
+                  </figure>
+                </div>
+
+                <div class="swiper-slide h-auto pt-4">
+                  <figure class="d-flex flex-column h-100 px-2 px-sm-0 mb-0 mx-2">
+                    <div class="card h-100 position-relative border-0 shadow-sm pt-4">
+                      <span class="btn btn-icon btn-primary shadow-primary pe-none position-absolute top-0 start-0 translate-middle-y ms-4">
+                        <i class="bx bxs-quote-left"></i>
+                      </span>
+                      <blockquote class="card-body pb-3 mb-0">
+                        <p class="mb-0">Phasellus luctus nisi id orci condimentum, at cursus nisl vestibulum. Orci varius natoque penatibus et magnis dis parturient montes commodo.</p>
+                      </blockquote>
+                      <div class="card-footer border-0 text-nowrap pt-0">
+                        <i class="bx bxs-star text-warning"></i>
+                        <i class="bx bxs-star text-warning"></i>
+                        <i class="bx bxs-star text-warning"></i>
+                        <i class="bx bxs-star text-warning"></i>
+                        <i class="bx bxs-star text-warning"></i>
+                      </div>
+                    </div>
+                    <figcaption class="ps-4 pt-4">
+                      <h6 class="fs-sm fw-semibold mb-0">Vambula Lagunov</h6>
+                      <span class="fs-xs text-muted">Otsib ikka veel kollastmaja</span>
+                    </figcaption>
+                  </figure>
+                </div>
+
+
+              <!-- Pagination (bullets) -->
+              <div class="swiper-pagination position-relative d-md-none mt-5"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Download app CTA -->
+      <section class="dark-mode bg-dark position-relative pt-lg-4 pt-xl-5 overflow-hidden">
+        <div class="position-absolute top-0 start-0 w-100 h-100 bg-secondary"></div>
+        <div class="container position-relative zindex-3 pt-5">
+          <div class="row pt-2 pt-sm-3 pt-md-4">
+            <div class="col-md-6 col-xl-5 col-xxl-4 text-center text-md-start pb-4 pb-sm-5 mb-2 mb-md-3 mb-lg-4 mb-xl-5">
+              <h2 class="h1 mb-5">Lae alla meie äpp igale seadmele:</h2>
+              <div class="d-flex d-md-block mt-n2 mt-sm-0">
+                <div class="row row-cols-1 row-cols-lg-2 align-items-lg-end me-1 me-md-0 pb-md-4 mb-md-3">
+                  <div class="col">
+                    <h3 class="fs-base fw-normal opacity-60 mb-2">App Store</h3>
+                    <div class="text-nowrap text-warning pb-1 mb-2">
+                      <i class="bx bxs-star"></i>
+                      <i class="bx bxs-star"></i>
+                      <i class="bx bxs-star"></i>
+                      <i class="bx bxs-star"></i>
+                      <i class="bx bxs-star"></i>
+                    </div>
+                    <h4 class="mb-1">Editor's Choice</h4>
+                    <p class="mb-0">rating 4.7, 187K+ reviews</p>
+                  </div>
+                  <div class="col d-xl-flex justify-content-end">
+                    <a href="#" class="btn btn-dark btn-lg w-xl-100 px-3 py-2 ms-xl-3 mt-3 mt-lg-0">
+                      <img src="assets/img/market/appstore-light.svg" class="light-mode-img" width="124" alt="App Store">
+                      <img src="assets/img/market/appstore-dark.svg" class="dark-mode-img" width="124" alt="App Store">
+                    </a>
+                  </div>
+                </div>
+                <div class="row row-cols-1 row-cols-lg-2 align-items-lg-end">
+                  <div class="col">
+                    <h3 class="fs-base fw-normal opacity-60 mb-2">Google Play</h3>
+                    <div class="text-nowrap text-warning pb-1 mb-2">
+                      <i class="bx bxs-star"></i>
+                      <i class="bx bxs-star"></i>
+                      <i class="bx bxs-star"></i>
+                      <i class="bx bxs-star"></i>
+                      <i class="bx bxs-star"></i>
+                    </div>
+                    <h4 class="mb-1">App of the Day</h4>
+                    <p class="mb-0">rating 4.8, 30K+ reviews</p>
+                  </div>
+                  <div class="col d-xl-flex justify-content-end">
+                    <a href="#" class="btn btn-dark btn-lg w-xl-100 px-3 py-2 ms-xl-3 mt-3 mt-lg-0">
+                      <img src="assets/img/market/googleplay-light.svg" class="light-mode-img" width="139" alt="Google Play">
+                      <img src="assets/img/market/googleplay-dark.svg" class="dark-mode-img" width="139" alt="Google Play">
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-7 col-xxl-8">
+              <img src="assets/img/landing/app-showcase/devices.png" width="618" class="rellax d-block mx-auto" alt="Devices" data-rellax-percentage="0.5" data-rellax-speed="1" data-disable-parallax-down="lg">
+              <div class="d-none d-xl-block" style="margin-bottom: -450px;"></div>
+              <div class="d-none d-lg-block d-xl-none" style="margin-bottom: -800px;"></div>
+              <div class="d-none d-sm-block d-lg-none" style="margin-bottom: -400px;"></div>
+              <div class="d-sm-none" style="margin-bottom: -240px;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Info links -->
+      <section class="container pt-5 pb-4 pb-sm-5 mb-2 mb-sm-0 mb-lg-3 mb-xl-4 mt-md-2 mt-lg-4 mt-xl-5">
+        <div class="row row-cols-1 row-cols-sm-3 pt-sm-3 py-2">
+          <div class="col d-flex d-sm-block d-lg-flex align-items-start mb-3 mb-sm-0">
+            <div class="d-table bg-primary shadow-primary rounded flex-shrink-0 p-2 mb-3">
+              <img src="assets/img/landing/app-showcase/icons/chat.svg" width="24" class="d-block m-1" alt="Icon">
+            </div>
+            <div class="ps-4 ps-sm-0 ps-lg-4 ms-lg-2 me-xl-2 pe-xl-5">
+              <h3 class="h4 mb-2 mb-md-3">24/7 Abi</h3>
+              <p class="mb-1 mb-md-2">Rääge meie klienditeeninduse spetsialistidega</p>
+              <a href="#" class="btn btn-link px-0">
+                Räägi meiega
+                <i class="bx bx-right-arrow-alt fs-xl ms-2"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col d-flex d-sm-block d-lg-flex align-items-start mb-3 mb-sm-0">
+            <div class="d-table bg-primary shadow-primary rounded flex-shrink-0 p-2 mb-3">
+              <img src="assets/img/landing/app-showcase/icons/faq.svg" width="24" class="d-block m-1" alt="Icon">
+            </div>
+            <div class="ps-4 ps-sm-0 ps-lg-4 ms-lg-2 pe-xl-5">
+              <h3 class="h4 mb-2 mb-md-3">Korduma Kippuvad Küsimused</h3>
+              <p class="mb-1 mb-md-2">Leia vastused. Lisateave funktsioonide ja teenuste kohta.</p>
+              <a href="#" class="btn btn-link px-0">
+               Veel
+                <i class="bx bx-right-arrow-alt fs-xl ms-2"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col d-flex d-sm-block d-lg-flex align-items-start">
+            <div class="d-table bg-primary shadow-primary rounded flex-shrink-0 p-2 mb-3">
+              <img src="assets/img/landing/app-showcase/icons/email.svg" width="24" class="d-block m-1" alt="Icon">
+            </div>
+            <div class="ps-4 ps-sm-0 ps-lg-4 ms-lg-2 pe-xl-5">
+              <h3 class="h4 mb-2 mb-md-3">Email</h3>
+              <p class="mb-1 mb-md-2">Küsimusi võite julgelt esitada meie e-posti aadressile.</p>
+              <a href="#" class="btn btn-link px-0">
+                Saada kiri
+                <i class="bx bx-right-arrow-alt fs-xl ms-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Divider -->
+      <div class="container mb-md-2 mb-lg-4"><hr></div>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer pt-5 pb-4 pb-lg-5">
+      <div class="container text-center pt-lg-3">
+        <div class="navbar-brand justify-content-center text-dark mb-2 mb-lg-4">
+          <img src="assets/img/logo.svg" class="me-2" width="60" alt="Majahaldur">
+          <span class="fs-4">Majahaldur</span>
+        </div>
+        <div class="d-flex flex-column flex-sm-row justify-content-center">
+          <a href="#" class="btn btn-dark btn-lg px-3 py-2 me-sm-4 mb-3">
+            <img src="assets/img/market/appstore-light.svg" class="light-mode-img" width="124" alt="App Store">
+            <img src="assets/img/market/appstore-dark.svg" class="dark-mode-img" width="124" alt="App Store">
+          </a>
+          <a href="#" class="btn btn-dark btn-lg px-3 py-2 mb-3">
+            <img src="assets/img/market/googleplay-light.svg" class="light-mode-img" width="139" alt="Google Play">
+            <img src="assets/img/market/googleplay-dark.svg" class="dark-mode-img" width="139" alt="Google Play">
+          </a>
+        </div>
+        <div class="d-flex justify-content-center pt-4 mt-lg-3">
+          <a href="#" class="btn btn-icon btn-secondary btn-facebook mx-2">
+            <i class="bx bxl-facebook"></i>
+          </a>
+          <a href="#" class="btn btn-icon btn-secondary btn-instagram mx-2">
+            <i class="bx bxl-instagram"></i>
+          </a>
+          <a href="#" class="btn btn-icon btn-secondary btn-twitter mx-2">
+            <i class="bx bxl-twitter"></i>
+          </a>
+          <a href="#" class="btn btn-icon btn-secondary btn-youtube mx-2">
+            <i class="bx bxl-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- Back to top button -->
+    <a href="#top" class="btn-scroll-top" data-scroll>
+      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+    </a>
+
+
+    <!-- Vendor Scripts -->
+    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="assets/vendor/parallax-js/dist/parallax.min.js"></script>
+    <script src="assets/vendor/rellax/rellax.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main Theme Script -->
+    <script src="assets/js/theme.min.js"></script>
+  </body>
+</html>
