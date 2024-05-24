@@ -2764,11 +2764,11 @@ textarea.form-control-lg {
     transition: none;
   }
 }
-.btn:hover {
+/* .btn:hover {
   color: var(--si-btn-hover-color);
   background-color: var(--si-btn-hover-bg);
   border-color: var(--si-btn-hover-border-color);
-}
+} */
 .btn-check + .btn:hover {
   color: var(--si-btn-color);
   background-color: var(--si-btn-bg);
@@ -2809,12 +2809,12 @@ textarea.form-control-lg {
   --si-btn-bg: #ffff00;
   --si-btn-border-color: #ffff00;
   --si-btn-hover-color: #000;
-  --si-btn-hover-bg: #7a7df3;
-  --si-btn-hover-border-color: #7375f2;
-  --si-btn-focus-shadow-rgb: 84, 87, 205;
+  /* --si-btn-hover-bg: #7a7df3; */
+  /* --si-btn-hover-border-color: #7375f2; */
+  /* --si-btn-focus-shadow-rgb: 84, 87, 205; */
   --si-btn-active-color: #000;
-  --si-btn-active-bg: #8285f4;
-  --si-btn-active-border-color: #7375f2;
+  /* --si-btn-active-bg: #8285f4; */
+  /* --si-btn-active-border-color: #7375f2; */
   --si-btn-active-shadow: unset;
   --si-btn-disabled-color: #000;
   --si-btn-disabled-bg: #ffff00;
@@ -12248,10 +12248,10 @@ html:not([dir=rtl]) .range-slider-ui.noUi-horizontal .noUi-handle {
 .btn-primary {
   --si-btn-hover-color: #101828;
   --si-btn-active-color: #fff;
-  --si-btn-hover-bg: #4044ee;
+  /* --si-btn-hover-bg: #4044ee;
   --si-btn-active-bg: #4044ee;
   --si-btn-hover-border-color: #4044ee;
-  --si-btn-active-border-color: #4044ee;
+  --si-btn-active-border-color: #4044ee; */
   --si-btn-disabled-color: #fff;
 }
 
